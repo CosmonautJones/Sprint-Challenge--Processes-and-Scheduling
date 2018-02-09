@@ -1,4 +1,8 @@
-1.
+1. I chose:
+
+        B. P1: 0 - 64,000;
+           P2: 0 - 64,000;
+ - Because the allocation of memory isn't assigned to processes at the beginning. The processes are taken as they come, therefore taking up addresses in the range provided.
 
 
 2. There are 5 states in which a process can be in at any point in time. Which are:
@@ -14,3 +18,4 @@
     - write() took 3.901143 seconds to execute
 
 4. The `printf()` call should be faster because `printf()` buffers its output. That being, it stores its result in a memory buffer. The `printf()` my use the `write()` call, but only when the buffer is full. The `write()` is a fairly expensive call, much more expensive than copying data into `printf()`'s buffer, so reducing the number of write calls provides a net performance win.
+I noticed in my case that some conditions, such as stdout is directed to a terminal device, it causes `printf()` to call `write()` every time it sees a **\n**. By removing them, it increased `printf()`'s processing time significantly.
